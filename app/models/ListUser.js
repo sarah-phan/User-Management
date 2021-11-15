@@ -1,6 +1,19 @@
-function User(){
+function ListUser(){
     this.arrayUser = []; 
-    this. addArray = function(user){
-        this.arrayUser.push(user);   
+    this.setUserList = function(data){
+        this.arrayUser = data;
     }
+}
+
+ListUser.prototype.searchName = function(key){
+    var arrayKey=[];
+    var key = key.trim().toLowerCase();
+    this.arrayUser.map(function(user){
+        var name = user.hoTen.toLowerCase();
+        if(name.indexOf(key) > -1){
+            console.log("Tìm thấy tên SV");
+            arrayKey.push(user);
+        }
+    });
+    return arrayKey;
 }

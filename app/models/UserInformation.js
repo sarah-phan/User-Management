@@ -8,4 +8,5 @@ function UserInformation(id, taiKhoan, hoTen, matKhau, email, hinhAnh, loaiND, n
     this.loaiND = loaiND;
     this.ngonNgu = ngonNgu;
     this.moTa = moTa;
+
 }

@@ -12,21 +12,21 @@ function Validation(){
         }
     };
 
-    // this.checkAccount = function(value, message, spanID, array){
-    //     var isExist = array.some(function(user){
-    //         return value == user.taiKhoan;
-    //     })
-    //     if(isExist){
-    //         document.getElementById(spanID).innerHTML = message;
-    //         document.getElementById(spanID).style.display = "block";
-    //         return false;
-    //     }
-    //     else{
-    //         document.getElementById(spanID).innerHTML = "";
-    //         document.getElementById(spanID).style.display = "none";
-    //         return true;
-    //     } 
-    // }
+    this.checkAccount = function(value, message, spanID, array){
+        var isExist = array.some(function(user){
+            return value == user.taiKhoan;
+        })
+        if(isExist){
+            document.getElementById(spanID).innerHTML = message;
+            document.getElementById(spanID).style.display = "block";
+            return false;
+        }
+        else{
+            document.getElementById(spanID).innerHTML = "";
+            document.getElementById(spanID).style.display = "none";
+            return true;
+        } 
+    }
 
     this.checkName = function(value, message, spanID){
         var pattern = "^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\\s]+$";

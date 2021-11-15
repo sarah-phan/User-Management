@@ -1,5 +1,6 @@
 var service = new UserService();
 var validation = new Validation();
+var users = new ListUser();
 
 function getEleId(id){
     return document.getElementById(id);
@@ -14,6 +15,7 @@ function getListUser(){
     .then(function(result){
         // console.log(result);
         renderData(result.data);
+        users.setUserList(result.data);
     })
     .catch(function(error){
         console.log(error);
@@ -79,7 +81,7 @@ function addUser(){
 
     var isValid = true;
 
-    isValid &= validation.checkEmpty(taiKhoan, "Tài khoản không được để trống", "tbTK");
+    isValid &= validation.checkEmpty(taiKhoan, "Tài khoản không được để trống", "tbTK") && validation.checkAccount(taiKhoan, "Tài khoản không được trùng", "tbTK", users.arrayUser);
 
     isValid &= validation.checkEmpty(hoTen, "Họ Tên không được để trống", "tbHT") && validation.checkName(hoTen, "Họ Tên là kiểu chữ không chứa số và ký tự đặc biệt", "tbHT");
 
@@ -179,4 +181,10 @@ function updateUser(id){
             console.log(error);
         })
     }
+}
+
+getEleId("txtSearch").onkeyup = function(){
+    var key = getEleId("txtSearch").value;
+    var arrayKey = users.searchName(key);
+    renderData(arrayKey);
 }
